@@ -11,7 +11,7 @@ package Autocast
 	public class AutocastMod extends MovieClip implements BezelMod
 	{
 		
-		private var autocast:Autocast;
+		private var autocast:Object;
 		
 		public function AutocastMod() 
 		{
@@ -30,8 +30,11 @@ package Autocast
 		
 		public function unload(): void
 		{
-			autocast.unload();
-			autocast = null;
+			if (autocast != null)
+			{
+				autocast.unload();
+				autocast = null;
+			}
 		}
 		
 	}
